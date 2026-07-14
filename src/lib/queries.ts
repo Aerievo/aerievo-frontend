@@ -33,9 +33,17 @@ const sectionDataProjection = `{
   "columnsCount": columns,
   cards[] {
     icon,
+    "image": image.asset->url,
     title,
     description,
     link
+  },
+  stories[] {
+    title,
+    slug,
+    "image": image.asset->url,
+    description,
+    stats
   },
   items[] {
     icon,

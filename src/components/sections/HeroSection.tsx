@@ -32,7 +32,7 @@ export default function HeroSection({ data }: HeroSectionProps) {
             </p>
           )}
 
-          {data.columns && Array.isArray(data.columns) && data.cards && data.cards.length > 0 && (
+          {data.cards && data.cards.length > 0 && (
             <div className="grid gap-6 mb-8 max-w-xl grid-cols-1 sm:grid-cols-3">
               {data.cards.map((card, i) => (
                 <div key={i} className="rounded bg-white p-5 text-left shadow-(--shadow-card)">
