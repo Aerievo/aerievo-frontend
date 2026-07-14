@@ -1,0 +1,79 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #0a0d31;
+
+  /* Aerievo theme colors — matched to the source WordPress/Elementor site's
+     kit tokens (post-5.css): electric blue primary, navy headings, black footer. */
+  --primary: #010ed0;
+  --primary-dark: #242627; /* button hover per kit CSS */
+  --secondary: #5f6567; /* muted gray body text */
+  --accent-tint: #dee0ff; /* light blue tint for badges/accents */
+  --surface: #f5f5f5;
+  --surface-hover: #ececec;
+  --muted: #5f6567;
+  --border: #00000026; /* black @15% */
+  --heading: #0a0d31;
+  --body-text: #00000099; /* black @60% */
+  --footer-bg: #000000;
+
+  --radius-control: 4px; /* buttons/inputs — small rounding per kit */
+  --shadow-card: 4px 4px 14px 1px rgba(0, 0, 0, 0.15);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-primary: var(--primary);
+  --color-primary-dark: var(--primary-dark);
+  --color-secondary: var(--secondary);
+  --color-accent-tint: var(--accent-tint);
+  --color-surface: var(--surface);
+  --color-surface-hover: var(--surface-hover);
+  --color-muted: var(--muted);
+  --color-border: var(--border);
+  --color-heading: var(--heading);
+  --color-footer-bg: var(--footer-bg);
+  --font-sans: var(--font-body), ui-sans-serif, system-ui, sans-serif;
+  --font-heading: var(--font-heading), ui-sans-serif, system-ui, sans-serif;
+}
+
+body {
+  background: var(--background);
+  color: var(--body-text);
+  font-family: var(--font-body), ui-sans-serif, system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--heading);
+  font-family: var(--font-heading), ui-sans-serif, system-ui, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f5f5f5;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
