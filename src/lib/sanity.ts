@@ -28,7 +28,12 @@ export const sanityClient: SanityClient = new Proxy({} as SanityClient, {
       });
     }
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    return (_sanityClient as any)[prop];
+    const value = (_sanityClient as any)[prop];
+    // SanityClient methods rely on private (#) class fields, so an unbound
+    // reference called as `sanityClient.fetch(...)` would run with `this`
+    // pointing at this Proxy instead of the real client. Bind to the real
+    // instance to preserve private-field access.
+    return typeof value === "function" ? value.bind(_sanityClient) : value;
   },
 });
 
@@ -46,7 +51,8 @@ export const sanityPreviewClient: SanityClient = new Proxy({} as SanityClient, {
       });
     }
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    return (_sanityPreviewClient as any)[prop];
+    const value = (_sanityPreviewClient as any)[prop];
+    return typeof value === "function" ? value.bind(_sanityPreviewClient) : value;
   },
 });
 
